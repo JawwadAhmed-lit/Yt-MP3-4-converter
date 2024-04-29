@@ -42,28 +42,43 @@ def download_video():
     progress.pack(pady=10)
     try:
         ydl_opts = {
-            'outtmpl': 'downloads/%(title)s.%(ext)s',
+            'outtmpl': 'downloads/mp4/%(title)s.%(ext)s',
             'progress_hooks': [my_hook]
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            os.path.join("downloads",f"{ydl.extract_info(url, download=True).get('title')}.mp4")
+
             ydl.download(url)
             status_label.configure(text="Downloaded Successfully",text_color="white",fg_color="green")
 
     except Exception as e:
         status_label.configure(text=f"Error: {str(e)}",text_color="white",fg_color="red")
 
-def my_hook(d):
-    if d['status'] == 'downloading':
-#         update the progress bar
-        progress['value'] = d['_percent_str']
-        progress_label.configure(text=f"{d['_percent_str']} downloaded")
-        progress_label.update()
-    elif d['status'] == 'finished':
-        progress_label.configure(text="100% downloaded")
-        progress['value'] = "100"
-        progress_label.update()
-        status_label.configure(text="Downloaded Successfully",text_color="white",fg_color="green")
+
+
+def download_mp3():
+    url = entry.get()
+    status_label.pack(pady=10)
+    progress_label.pack(pady=10)
+    progress.pack(pady=10)
+    try:
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'outtmpl': 'downloads/mp3/%(title)s.mp3',
+            'progress_hooks': [my_hook],
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+        }
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            ydl.download(url)
+            status_label.configure(text="Downloaded Successfully", text_color="white", fg_color="green")
+
+    except Exception as e:
+        if(str(e) != "ERROR: ffprobe/avprobe and ffmpeg/avconv not found. Please install one."):
+
+            status_label.configure(text=f"Error: {str(e)}", text_color="white", fg_color="red")
 
 def convert_mp3():
 
@@ -85,7 +100,21 @@ def convert_mp3():
     status_label.pack(pady=10)
     video.close()
 
+def my_hook(d):
+    if d['status'] == 'downloading':
+#         update the progress bar
+        percentage = float(d['_percent_str'].replace('%', ''))
 
+        # Update the progress bar
+        progress.set(percentage)
+        progress_label.configure(text=f"{d['_percent_str']} downloaded")
+        progress_label.update()
+    elif d['status'] == 'finished':
+        progress_label.configure(text="100% downloaded")
+        progress.set(100)
+        progress_label.update()
+        progress.update()
+        status_label.configure(text="Downloaded Successfully",text_color="white",fg_color="green")
 # Create the root window
 root = ctk.CTk()
 
@@ -111,9 +140,12 @@ label.pack(pady=10)
 entry.pack(pady=10)
 
 # create a download button
-downloadButt = ctk.CTkButton(frame, text="Download",command=download_video)
+downloadButt = ctk.CTkButton(frame, text="Download MP4",command=download_video)
 downloadButt.pack(pady=10)
 
+# create a download mp3 button
+downloadMp3Butt = ctk.CTkButton(frame, text="Download MP3",command=download_mp3)
+downloadMp3Butt.pack(pady=10)
 # create a download from file button
 downloadFileButt = ctk.CTkButton(frame, text="Download from csv file",command=download_video_from_file)
 downloadFileButt.pack(pady=10)
@@ -131,6 +163,7 @@ status_label = ctk.CTkLabel(frame, text="Status")
 # create a convert button
 convertButt = ctk.CTkButton(frame, text="Select MP3 to Convert",command=convert_mp3)
 convertButt.pack(pady=10)
+
 
 
 

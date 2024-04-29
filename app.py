@@ -5,13 +5,34 @@ from tkinter.filedialog import *
 
 import yt_dlp
 import customtkinter as ctk
-# import pandas as pd
-# pdReader = pd.read_csv('links.csv')
-# wos = []
-# for link in pdReader.names[:3]:
-#     wos.append(link)
-#     print(link)
-# for ink in wos:
+import pandas as pd
+
+
+
+def download_video_from_file():
+    try:
+        status_label.pack(pady=10)
+        progress_label.pack(pady=10)
+        progress.pack(pady=10)
+        pdReader = pd.read_csv('links.csv')
+        linksList = []
+        ydl_opts = {
+            'outtmpl': 'downloads/%(title)s.%(ext)s',
+            'progress_hooks': [my_hook]
+        }
+        for link in pdReader['links']:
+            linksList.append(link)
+
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            for link in linksList:
+                os.path.join("downloads", f"{ydl.extract_info(link, download=True).get('title')}.mp4")
+                ydl.download([link])
+            status_label.configure(text="Downloaded Successfully",text_color="white",fg_color="green")
+    except Exception as e:
+        status_label.configure(text=f"Error: {str(e)}",text_color="white",fg_color="red")
+
+
+
 
 
 def download_video():
@@ -93,6 +114,10 @@ entry.pack(pady=10)
 downloadButt = ctk.CTkButton(frame, text="Download",command=download_video)
 downloadButt.pack(pady=10)
 
+# create a download from file button
+downloadFileButt = ctk.CTkButton(frame, text="Download from csv file",command=download_video_from_file)
+downloadFileButt.pack(pady=10)
+
 # create a progress bar
 progress_label = ctk.CTkLabel(frame, text="0%")
 
@@ -106,6 +131,8 @@ status_label = ctk.CTkLabel(frame, text="Status")
 # create a convert button
 convertButt = ctk.CTkButton(frame, text="Select MP3 to Convert",command=convert_mp3)
 convertButt.pack(pady=10)
+
+
 
 # run
 root.mainloop()

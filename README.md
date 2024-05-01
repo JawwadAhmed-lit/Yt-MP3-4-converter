@@ -1,6 +1,8 @@
-# Yt-MP3-4 Converter
 
-This project is a YouTube to MP3/MP4 converter.
+# YouTube Video Downloader
+
+This Python script allows users to download YouTube videos either as MP4 files or extract audio as MP3 files. It utilizes the `yt_dlp` library for downloading videos and `moviepy` for extracting audio from video files. The graphical user interface (GUI) is built using `customtkinter` for a user-friendly experience.
+
 
 ## Getting Started
 
@@ -8,21 +10,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
-
-# YouTube Video Downloader
-
-This Python script allows users to download YouTube videos either as MP4 files or extract audio as MP3 files. It utilizes the `yt_dlp` library for downloading videos and `moviepy` for extracting audio from video files. The graphical user interface (GUI) is built using `tkinter` for a user-friendly experience.
-
-## Prerequisites
 
 Before running the script, ensure you have the following dependencies installed:
 
 - Python 3.x
-- `yt_dlp` library: You can install it via pip:
-``pip install yt_dlp``
-- `moviepy` library: You can install it via pip:
-``pip install yt_dlp``
+- use the following command to install the required libraries
+```pip install -r requirements.txt```
 
 
 ## Usage
@@ -48,7 +41,7 @@ Before running the script, ensure you have the following dependencies installed:
 - Ensure you have a stable internet connection for downloading videos.
 - Respect YouTube's terms of service and copyright policies when downloading content.
 - Make sure to have sufficient storage space for downloaded files.
-
+- There will be seperate folders for made mp3 and mp4 files in the same directory where the script is located.
 ## Author
 
 - Jawwad Ahmed

@@ -1,5 +1,5 @@
 
-# YouTube Video Downloader
+# 🎥🎵 YouTube Video Downloader
 
 This Python script allows users to download YouTube videos either as MP4 files or extract audio as MP3 files. It utilizes the `yt_dlp` library for downloading videos and `moviepy` for extracting audio from video files. The graphical user interface (GUI) is built using `customtkinter` for a user-friendly experience.
 
@@ -8,7 +8,7 @@ This Python script allows users to download YouTube videos either as MP4 files o
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+🔧 **Prerequisites:**
 
 
 Before running the script, ensure you have the following dependencies installed:
@@ -16,7 +16,11 @@ Before running the script, ensure you have the following dependencies installed:
 - Python 3.x
 - use the following command to install the required libraries
 ```pip install -r requirements.txt```
-
+- 
+📌 **Installation:**
+1. Clone this repository.
+2. Install dependencies using `pip install -r requirements.txt`.
+3. Run the script using `python youtube_downloader.py`.
 
 ## Usage
 
@@ -29,7 +33,7 @@ Before running the script, ensure you have the following dependencies installed:
 
 4. Click the "Download" button to start the download process.
 
-## Features
+🚀 **Key Features:**
 
 - Download videos from YouTube either by entering a single link or from a CSV file.
 - Choose between downloading videos as MP4 files or extracting audio as MP3 files.
@@ -42,6 +46,8 @@ Before running the script, ensure you have the following dependencies installed:
 - Respect YouTube's terms of service and copyright policies when downloading content.
 - Make sure to have sufficient storage space for downloaded files.
 - There will be seperate folders for made mp3 and mp4 files in the same directory where the script is located.
+
+Start converting your favorite YouTube content into your preferred format today!
 ## Author
 
 - Jawwad Ahmed

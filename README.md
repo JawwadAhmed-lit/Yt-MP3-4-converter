@@ -13,14 +13,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 Before running the script, ensure you have the following dependencies installed:
 
+-  Clone this repository.
+
 - Python 3.x
 - use the following command to install the required libraries
 ```pip install -r requirements.txt```
-- 
-📌 **Installation:**
-1. Clone this repository.
-2. Install dependencies using `pip install -r requirements.txt`.
-3. Run the script using `python youtube_downloader.py`.
+
+
 
 ## Usage
 

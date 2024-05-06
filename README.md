@@ -8,18 +8,37 @@ This Python script allows users to download YouTube videos either as MP4 files o
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+
+   
 🔧 **Prerequisites:**
 
 
 Before running the script, ensure you have the following dependencies installed:
 
 -  Clone this repository.
+After cloning the repository you can head to `Info on Virtual Environment` section , if you want packages to download only in this folder and not the whole system . 
 
 - Python 3.x
 - use the following command to install the required libraries
 ```pip install -r requirements.txt```
 
+## Info on Virtual Environment
+Python's official documentation says:
 
+_"A virtual environment is a Python environment such that the Python interpreter, libraries and scripts installed into it are isolated from those installed in other virtual environments, and (by default) any libraries installed in a “system” Python, i.e., one which is installed as part of your operating system"_
+
+What ever packages you download in your virtual environment, it will be specific to that project only and not downloaded globally, in this way  it will not interfere with your system files. 
+
+**To Install:** Use following commands:
+
+1.  `pip install virtualenv` in your terminal
+2. To use venv in your project folder, in your terminal run `python<version> -m venv <virtual-environment-name>`
+   for e.g : ` python3.8 -m venv env`
+3. Now just activate the virtual environment by using : `source env/bin/activate`.
+   This will activate your virtual environment. Immediately, you will notice that your terminal path includes env, signifying an activated virtual environment.
+4. Now you can install the required pacakges using ```pip install -r requirements.txt```.
+
+   
 
 ## Usage
 

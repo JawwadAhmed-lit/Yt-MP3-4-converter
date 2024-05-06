@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 Before running the script, ensure you have the following dependencies installed:
 
 -  Clone this repository.
-After cloning the repository you can head to `Info on Virtual Environment` section , if you want packages to download only in this folder and not the whole system . 
+After cloning the repository you can head to [`Info on Virtual Environment`](https://github.com/JawwadAhmed-lit/Yt-MP3-4-converter/blob/master/README.md#info-on-virtual-environment) section , if you want packages to download only in this folder and not the whole system . 
 
 - Python 3.x
 - use the following command to install the required libraries

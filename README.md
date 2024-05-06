@@ -38,8 +38,7 @@ What ever packages you download in your virtual environment, it will be specific
    This will activate your virtual environment. Immediately, you will notice that your terminal path includes env, signifying an activated virtual environment.
 4. Now you can install the required pacakges using ```pip install -r requirements.txt```.
 
-   
-
+_To Deactivate : To deactivate your virtual environment, simply run the following code in the terminal:`~ deactivate`_.
 ## Usage
 
 1. Run the script using Python:
